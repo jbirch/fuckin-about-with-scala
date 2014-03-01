@@ -15,6 +15,9 @@ I should be able to
  * Run the Scala repl in IDEA with the project classpath from sbt
  * Either run sbt-revolver in IDEA, or run sbt directly without too many hacks (IE, CLI -> SBT -> sbt-resolver == bad)
  * Incorporate findbugs and other things into my project
+ * Utilise Akka actors
+ * Test my project
+ * Test my routing without spinning up actors
 
 
 Things I can't yet do
@@ -25,14 +28,17 @@ Things I can't yet do
  * Run the Scala repl in IDEA with the project classpath from sbt
  * Run sbt-revolver in IDEA
  * Incorporate findbugs
+ * Actorise
+ * Test
 
 
 Things I've actually acheived so far
 ------------------------------------
- * Project runs with Scala 2.11.0-M8, specified in build.sbt.
+ * Project runs with Scala 2.11.0-RC1, specified in build.sbt.
  * Project runs with sbt 0.13.1, specified in project/build.properties.
  * Project has no pom as of yet.
  * Project sbt file is loadable on the command line and directly by IntelliJ IDEA with sbt plugin.
- * Project depends on spray-can/spray-routing 1.3-RC4, though it's unused.
-   These are not dependent on scala version.
+ * Project depends on spray-can/spray-routing 1.3-RC4
+ * Project depends on akka 2.3.0-RC4
  * Project pulls in 0.7.1 of sbt-revolver, though it cannot be used yet (nothing to re-start)
+ * Routing is separate from the Actor that runs it -- testing routing doesn't require Akka
