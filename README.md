@@ -8,6 +8,7 @@ I should be able to
 
  * Run the project with scala 2.10.3 or 2.11-rcwhateverthefuckweareupto
  * Run the project using sbt 0.12.4 (This the latest?)
+ * Have an app, not just some code
  * Run the app with `sbt run` or `run` on the sbt command line
  * Run the app using spray/sbt-revolver (`sbt re-start`?)
  * Not have any pom.xml at all
@@ -23,6 +24,7 @@ I should be able to
 Things I can't yet do
 ---------------------
 
+ * Actually have an app.
  * Run the app with `sbt run` or `run` on the sbt command line
  * Run the app using spray/sbt-revolver (`sbt re-start`?)
  * Run the Scala repl in IDEA with the project classpath from sbt
