@@ -19,3 +19,5 @@ libraryDependencies ++=  {
     "org.scala-lang.modules" %%  "scala-xml"     % "1.0.0"
   )
 }
+
+Revolver.settings

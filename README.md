@@ -25,8 +25,6 @@ Things I can't yet do
 ---------------------
 
  * Actually have an app.
- * Run the app with `sbt run` or `run` on the sbt command line
- * Run the app using spray/sbt-revolver (`sbt re-start`?)
  * Run the Scala repl in IDEA with the project classpath from sbt
  * Run sbt-revolver in IDEA
  * Incorporate findbugs
@@ -44,3 +42,5 @@ Things I've actually acheived so far
  * Project depends on akka 2.3.0-RC4
  * Project pulls in 0.7.1 of sbt-revolver, though it cannot be used yet (nothing to re-start)
  * Routing is separate from the Actor that runs it -- testing routing doesn't require Akka
+ * Project attempts to run with `sbt run`. Fun with Akka prevents this from being useful
+ * sbt-revolver does fun revolving stuff with `sbt re-start`
