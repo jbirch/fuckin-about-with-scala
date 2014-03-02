@@ -25,7 +25,6 @@ Things I can't yet do
 ---------------------
 
  * Incorporate findbugs
- * Test
 
 
 Things I've actually acheived so far
@@ -45,6 +44,8 @@ Things I've actually acheived so far
  * IDEA can run a scala intepreter with the project on the classpath. Great for quick feedback.
  * Application is run by the Actor system, not directly.
  * Incorporate scalastyle (`sbt scalastyle`) for common issues. Generated with `scalastyle-generate-config`, minus the header option.
+ * Test using specs2
+ * Test without explicitly spinning up Akka actors (Uses test actors in RouteTest)
 
 
 Caveats
@@ -63,3 +64,9 @@ __There's a random message about deadletters on application start__. I don't kno
     [INFO] [03/02/2014 16:00:26.769] [default-akka.actor.default-dispatcher-2] [akka://default/deadLetters] Message [akka.io.Tcp$Bound] from Actor[akka://default/user/IO-HTTP/listener-0#1393455647] to Actor[akka://default/deadLetters] was not delivered. [1] dead letters encountered. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
 
 __Scalastyle generates a useless check by default__. scalastyle-generate-config will generate a config file that includes org.scalastyle.file.HeaderMatchesChecker by default. This is for ensuring the first lines of every file match what's defined in this check. This is generally pretty useless unless you're enforcing licensing arrangements.
+
+__I don't understand implicits__. There was a point in my test when I bolted on the Specs2RouteTest trait to my test. It complained that I hadn't implemented abstract member actorRefFactory, though it helpfully offered to put in either `implicit def actorRefFactory: ActorRefFactory = ???` or `override implicit def actorRefFactory: ActorRefFactory = ???` for me. Even after replacing `???` with `system` (implicit val inside RouteTest), everything looked fine, but didn't compile! The `~>` function below was being over-shadowed by our implicit def. The solution is to simply use `def actorRefFactory: ActorRefFactory = system`. This is not immediately clear, and IDE integration here proved to be helpful, but not entirely so and slightly misleading.
+
+    implicit class WithTransformation2(request: HttpRequest) {
+      def ~>[A, B](f: A ⇒ B)(implicit ta: TildeArrow[A, B]): ta.Out = ta(request, f)
+    }
