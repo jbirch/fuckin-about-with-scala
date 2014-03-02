@@ -1,6 +1,6 @@
 name := "fuckingaboutwithspray"
 
-scalaVersion := "2.11.0-RC1"
+scalaVersion := "2.10.4-RC3"
 
 scalacOptions ++= Seq("-Xfatal-warnings", "-language:higherKinds", "-Xlint")
 
@@ -14,9 +14,7 @@ libraryDependencies ++=  {
   Seq(
     "io.spray"               %   "spray-can"     % sprayV,
     "io.spray"               %   "spray-routing" % sprayV,
-    "com.typesafe.akka"      %%  "akka-actor"    % akkaV,
-    //https://bitbucket.org/pastes/atlassian/iqyM#comment-2
-    "org.scala-lang.modules" %%  "scala-xml"     % "1.0.0"
+    "com.typesafe.akka"      %%  "akka-actor"    % akkaV
   )
 }
 
