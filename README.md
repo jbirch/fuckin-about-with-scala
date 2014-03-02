@@ -30,7 +30,7 @@ Things I can't yet do
 Things I've actually acheived so far
 ------------------------------------
  * Identified and defeated a compiler bug between Scala 2.11.0-M8 and 2.11.0-RC1.
- * Project runs with Scala 2.10.3-RC3, specified in build.sbt.
+ * Project runs with Scala 2.10.4-RC3, specified in build.sbt.
  * Project runs with sbt 0.13.1, specified in project/build.properties.
  * Project has no pom as of yet.
  * Project sbt file is loadable on the command line and directly by IntelliJ IDEA with sbt plugin.
