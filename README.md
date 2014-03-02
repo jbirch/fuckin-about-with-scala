@@ -51,6 +51,8 @@ Caveats
 
 __There's no Spray built for Scala 2.11 yet__. Presumably because of transitive dependencies -- Despite Spray.io dependencies being expressed with `%` instead of `%%`, they are very much tied to the underlying Scala version and versions of Akka, Specs2, and Scalaz compiled against that version as well. 
 
+__It looks like Spray will work with Scala 2.11, but it doesn't__. Changing the Scala version to something like 2.11.0-RC1 will compile file. However, due to transitive dependencies on an Akka compiled against 2.10, you'll get NoClassDefFoundErrors in Akka on inner classes. In my case, it was on scala.runtime.AbstractPartialFunction$mcVL$sp.
+
 __Scala 2.11 modularises the scala language__. Spray has made no attempt to follow that modularisation (I guess because of the former point) and the BasicMarshallers trait has a scala.xml.NodeSeq dependency to allow XML serialisation natively. Unfortunately, this means __No basic marshallers, like StringMarshaller, are imported implicitly because of this, silently__. It's a bit of a "Fuck you" moment.
 
 __Running sbt-revolver and IDEA compiles things twice__. Because they have different target roots but both notice source changes, every file results in a double-compile. This can result in lock contention on the Ivy cache, depending on what you change.
