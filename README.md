@@ -49,12 +49,12 @@ Things I've actually acheived so far
 Caveats
 -------
 
-_There's no Spray built for Scala 2.11 yet_. Presumably because of transitive dependencies -- Despite Spray.io dependencies being expressed with `%` instead of `%%`, they are very much tied to the underlying Scala version and versions of Akka, Specs2, and Scalaz compiled against that version as well. 
+__There's no Spray built for Scala 2.11 yet__. Presumably because of transitive dependencies -- Despite Spray.io dependencies being expressed with `%` instead of `%%`, they are very much tied to the underlying Scala version and versions of Akka, Specs2, and Scalaz compiled against that version as well. 
 
-_Scala 2.11 modularises the scala language_. Spray has made no attempt to follow that modularisation (I guess because of the former point) and the BasicMarshallers trait has a scala.xml.NodeSeq dependency to allow XML serialisation natively. Unfortunately, this means _No basic marshallers, like StringMarshaller, are imported implicitly because of this, silently_. It's a bit of a "Fuck you" moment.
+__Scala 2.11 modularises the scala language__. Spray has made no attempt to follow that modularisation (I guess because of the former point) and the BasicMarshallers trait has a scala.xml.NodeSeq dependency to allow XML serialisation natively. Unfortunately, this means __No basic marshallers, like StringMarshaller, are imported implicitly because of this, silently__. It's a bit of a "Fuck you" moment.
 
-_Running sbt-revolver and IDEA compiles things twice_. Because they have different target roots but both notice source changes, every file results in a double-compile. This can result in lock contention on the Ivy cache, depending on what you change.
+__Running sbt-revolver and IDEA compiles things twice__. Because they have different target roots but both notice source changes, every file results in a double-compile. This can result in lock contention on the Ivy cache, depending on what you change.
 
-_There's a random message about deadletters on application start_. I don't know what this means:
+__There's a random message about deadletters on application start__. I don't know what this means:
 
     [INFO] [03/02/2014 16:00:26.769] [default-akka.actor.default-dispatcher-2] [akka://default/deadLetters] Message [akka.io.Tcp$Bound] from Actor[akka://default/user/IO-HTTP/listener-0#1393455647] to Actor[akka://default/deadLetters] was not delivered. [1] dead letters encountered. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
