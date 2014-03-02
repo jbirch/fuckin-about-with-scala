@@ -1,6 +1,6 @@
 package com.fuckingaroundwithspray
 
-import akka.actor.Actor
+import akka.actor.{ActorContext, Actor}
 import spray.routing._
 import spray.http.MediaTypes._
 
@@ -9,8 +9,9 @@ import spray.http.MediaTypes._
  * Actors!" and watch an application magically appear.
  */
 class FuckingServiceActor extends Actor with FuckingService {
-  def actorRefFactory = context
-  def receive = runRoute(fuckingRoute)
+
+  def actorRefFactory: ActorContext = context
+  def receive: Actor.Receive = runRoute(fuckingRoute)
 }
 
 /**

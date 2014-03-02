@@ -44,6 +44,7 @@ Things I've actually acheived so far
  * sbt-revolver can work in IDEA using terminal -> SBT -> ~re-start. Terrible.
  * IDEA can run a scala intepreter with the project on the classpath. Great for quick feedback.
  * Application is run by the Actor system, not directly.
+ * Incorporate scalastyle (`sbt scalastyle`) for common issues. Generated with `scalastyle-generate-config`, minus the header option.
 
 
 Caveats
@@ -60,3 +61,5 @@ __Running sbt-revolver and IDEA compiles things twice__. Because they have diffe
 __There's a random message about deadletters on application start__. I don't know what this means:
 
     [INFO] [03/02/2014 16:00:26.769] [default-akka.actor.default-dispatcher-2] [akka://default/deadLetters] Message [akka.io.Tcp$Bound] from Actor[akka://default/user/IO-HTTP/listener-0#1393455647] to Actor[akka://default/deadLetters] was not delivered. [1] dead letters encountered. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
+
+__Scalastyle generates a useless check by default__. scalastyle-generate-config will generate a config file that includes org.scalastyle.file.HeaderMatchesChecker by default. This is for ensuring the first lines of every file match what's defined in this check. This is generally pretty useless unless you're enforcing licensing arrangements.
