@@ -48,6 +48,30 @@ Things I've actually acheived so far
  * Test without explicitly spinning up Akka actors (Uses test actors in RouteTest)
 
 
+Things you can do from the terminal
+-----------------------------------
+
+ * __sbt compile__ - Compiles the application
+ * __sbt run__ - Runs the application
+ * __sbt test__ - Runs the application tests
+ * __sbt scalastyle__ - Runs scalastyle over the project
+ * __sbt console__ - Starts a Scala REPL with the project classpath
+
+
+Things you can do from the sbt cli
+----------------------------------
+
+ * __compile__ - Compiles the application
+ * __run__ - Runs the application
+ * __test__ - Runs the application tests
+ * __scalastyle__ - Runs scalastyle over the project
+ * __console__ - Starts a Scala REPL with the project classpath
+ * __re-start__ - Runs the application in a forked JVM
+ * __~re-start__ - as __re-start__, but will kill the old process and re-fork on source changes
+ * __re-stop__ - Kills the forked-out application
+ * __re-status__ - Shows information about the current forked out application
+
+
 Caveats
 -------
 
