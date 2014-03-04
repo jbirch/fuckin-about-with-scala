@@ -19,12 +19,16 @@ I should be able to
  * Utilise Akka actors
  * Test my project
  * Test my routing without spinning up actors
+ * Easily see the dependency tree
+ * Easily release
 
 
 Things I can't yet do
 ---------------------
 
  * Incorporate findbugs
+ * See the dependency tree
+ * release
 
 
 Things I've actually acheived so far
