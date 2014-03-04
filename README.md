@@ -27,7 +27,6 @@ Things I can't yet do
 ---------------------
 
  * Incorporate findbugs
- * See the dependency tree
  * release
 
 
@@ -50,6 +49,7 @@ Things I've actually acheived so far
  * Incorporate scalastyle (`sbt scalastyle`) for common issues. Generated with `scalastyle-generate-config`, minus the header option.
  * Test using specs2
  * Test without explicitly spinning up Akka actors (Uses test actors in RouteTest)
+ * Ability to inspect the dependency tree
 
 
 Things you can do from the terminal
@@ -60,6 +60,8 @@ Things you can do from the terminal
  * __sbt test__ - Runs the application tests
  * __sbt scalastyle__ - Runs scalastyle over the project
  * __sbt console__ - Starts a Scala REPL with the project classpath
+ * __sbt dependency-tree__ - Shows an ascii dependency tree
+ * __sbt dependency-dot__ - Generates a GraphViz dot file of the dependency tree.
 
 
 Things you can do from the sbt cli
@@ -74,6 +76,7 @@ Things you can do from the sbt cli
  * __~re-start__ - as __re-start__, but will kill the old process and re-fork on source changes
  * __re-stop__ - Kills the forked-out application
  * __re-status__ - Shows information about the current forked out application
+ * __dependency-tree__ - Shows an ASCII dependency tree
 
 
 Caveats

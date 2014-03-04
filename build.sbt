@@ -25,3 +25,5 @@ libraryDependencies ++=  {
 Revolver.settings
 
 org.scalastyle.sbt.ScalastylePlugin.Settings
+
+net.virtualvoid.sbt.graph.Plugin.graphSettings
