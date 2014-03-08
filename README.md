@@ -37,13 +37,13 @@ Things I've actually acheived so far
  * Project runs with sbt 0.13.1, specified in project/build.properties.
  * Project has no pom as of yet.
  * Project sbt file is loadable on the command line and directly by IntelliJ IDEA with sbt plugin.
- * Project depends on spray-can/spray-routing 1.3-RC4
- * Project depends on akka 2.3.0-RC4
- * Project pulls in 0.7.1 of sbt-revolver, though it cannot be used yet (nothing to re-start)
+ * Project depends on spray-can/spray-routing 1.3.0
+ * Project depends on akka 2.3.0
+ * Project pulls in 0.7.1 of sbt-revolver
  * Routing is separate from the Actor that runs it -- testing routing doesn't require Akka
  * Project runs with `sbt run`.
  * sbt-revolver does fun revolving stuff with `~re-start` in the sbt console
- * sbt-revolver can work in IDEA using terminal -> SBT -> ~re-start. Terrible.
+ * sbt-revolver can work in IDEA using the SBT plugin's SBT console.
  * IDEA can run a scala intepreter with the project on the classpath. Great for quick feedback.
  * Application is run by the Actor system, not directly.
  * Incorporate scalastyle (`sbt scalastyle`) for common issues. Generated with `scalastyle-generate-config`, minus the header option.
