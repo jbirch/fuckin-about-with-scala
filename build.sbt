@@ -1,22 +1,23 @@
 name := "fuckingaboutwithspray"
 
-scalaVersion := "2.10.4-RC3"
+scalaVersion := "2.11.6"
 
 scalacOptions ++= Seq("-Xfatal-warnings", "-language:higherKinds", "-Xlint")
 
 resolvers ++= Seq(
-  "spray-repo"          at  "http://repo.spray.io",
-  "sonatype-releases"   at  "https://oss.sonatype.org/content/repositories/releases"
+  "spray-repo"          at  "https://repo.spray.io",
+  "sonatype-releases"   at  "https://oss.sonatype.org/content/repositories/releases",
+  "scalaz-bintray"      at  "https://dl.bintray.com/scalaz/releases"
 )
 
 libraryDependencies ++=  {
-  val sprayV  = "1.3.0"
-  val akkaV   = "2.3.0"
-  val specs2V = "2.3.10"
+  val sprayV  = "1.3.3"
+  val akkaV   = "2.3.9"
+  val specs2V = "3.3.1"
   Seq(
-    "io.spray"          %   "spray-can"             % sprayV,
-    "io.spray"          %   "spray-routing"         % sprayV,
-    "io.spray"          %   "spray-testkit"         % sprayV  % "test",
+    "io.spray"          %%  "spray-can"             % sprayV,
+    "io.spray"          %%  "spray-routing"         % sprayV,
+    "io.spray"          %%  "spray-testkit"         % sprayV  % "test",
     "com.typesafe.akka" %%  "akka-actor"            % akkaV,
     "org.specs2"        %%  "specs2"                % specs2V % "test"
   )

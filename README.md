@@ -6,8 +6,8 @@ Figure out how to Spray
 I should be able to
 -------------------
 
- * Run the project with scala 2.10.3 or 2.11-rcwhateverthefuckweareupto
- * Run the project using sbt 0.12.4+ (This the latest?)
+ * Run the project with scala 2.11+
+ * Run the project using sbt 0.13+
  * Have an app, not just some code
  * Run the app with `sbt run` or `run` on the sbt command line
  * Run the app using spray/sbt-revolver (`sbt re-start`?)
@@ -33,12 +33,12 @@ Things I can't yet do
 Things I've actually acheived so far
 ------------------------------------
  * Identified and defeated a compiler bug between Scala 2.11.0-M8 and 2.11.0-RC1.
- * Project runs with Scala 2.10.4-RC3, specified in build.sbt.
- * Project runs with sbt 0.13.1, specified in project/build.properties.
+ * Project runs with Scala 2.11.9, specified in build.sbt.
+ * Project runs with sbt 0.13.9, specified in project/build.properties.
  * Project has no pom as of yet.
  * Project sbt file is loadable on the command line and directly by IntelliJ IDEA with sbt plugin.
- * Project depends on spray-can/spray-routing 1.3.0
- * Project depends on akka 2.3.0
+ * Project depends on spray-can/spray-routing 1.3.3
+ * Project depends on akka 2.3.3
  * Project pulls in 0.7.1 of sbt-revolver
  * Routing is separate from the Actor that runs it -- testing routing doesn't require Akka
  * Project runs with `sbt run`.
@@ -81,12 +81,6 @@ Things you can do from the sbt cli
 
 Caveats
 -------
-
-__There's no Spray built for Scala 2.11 yet__. Presumably because of transitive dependencies -- Despite Spray.io dependencies being expressed with `%` instead of `%%`, they are very much tied to the underlying Scala version and versions of Akka, Specs2, and Scalaz compiled against that version as well. 
-
-__It looks like Spray will work with Scala 2.11, but it doesn't__. Changing the Scala version to something like 2.11.0-RC1 will compile file. However, due to transitive dependencies on an Akka compiled against 2.10, you'll get NoClassDefFoundErrors in Akka on inner classes. In my case, it was on scala.runtime.AbstractPartialFunction$mcVL$sp.
-
-__Scala 2.11 modularises the scala language__. Spray has made no attempt to follow that modularisation (I guess because of the former point) and the BasicMarshallers trait has a scala.xml.NodeSeq dependency to allow XML serialisation natively. Unfortunately, this means __No basic marshallers, like StringMarshaller, are imported implicitly because of this, silently__. It's a bit of a "Fuck you" moment.
 
 __Running sbt-revolver and IDEA compiles things twice__. Because they have different target roots but both notice source changes, every file results in a double-compile. This can result in lock contention on the Ivy cache, depending on what you change.
 
